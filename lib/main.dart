@@ -49,6 +49,7 @@ class _TabsPageState extends State<TabsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.blueGrey,
         centerTitle: true,
         title: Text(_widgetTitle.elementAt(_selectedIndex)),
       ),
@@ -71,7 +72,7 @@ class _TabsPageState extends State<TabsPage> {
           ),
         ],
         currentIndex: _selectedIndex,
-        selectedItemColor: Colors.amber[800],
+        selectedItemColor: Colors.blueGrey,
         onTap: _onItemTapped,
       ),
     );
