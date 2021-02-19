@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'home-page.dart';
+import 'add-page.dart';
+import 'profil_page.dart';
 
 void main() {
   runApp(MyApp());
@@ -11,39 +14,28 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: _title,
-      home: MyStatefulWidget(),
+      home: TabsPage(),
     );
   }
 }
 
-class MyStatefulWidget extends StatefulWidget {
-  MyStatefulWidget({Key key}) : super(key: key);
+class TabsPage extends StatefulWidget {
+  TabsPage({Key key}) : super(key: key);
 
   @override
-  _MyStatefulWidgetState createState() => _MyStatefulWidgetState();
+  _TabsPageState createState() => _TabsPageState();
 }
 
-class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+class _TabsPageState extends State<TabsPage> {
   int _selectedIndex = 0;
-  static const TextStyle optionStyle =
-  TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
-  static const List<Widget> _widgetOptions = <Widget>[
-    Text(
-      'Index 0: Home',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 1: Business',
-      style: optionStyle,
-    ),
-    Text(
-      'Index 2: School',
-      style: optionStyle,
-    ),
+  List<Widget> _widgetOptions = <Widget>[
+    HomePage(),
+    AddPage(),
+    ProfilPage(),
   ];
   static const List<String> _widgetTitle = <String>[
     'Accueil',
-    'Ajouter',
+    'Ajouter un post',
     'Profil',
   ];
 
@@ -67,15 +59,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            title: Text('Home'),
+            title: Text('Accueil'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.business),
-            title: Text('Business'),
+            icon: Icon(Icons.add),
+            title: Text('Ajouter'),
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.school),
-            title: Text('Home'),
+            icon: Icon(Icons.person),
+            title: Text('Profil'),
           ),
         ],
         currentIndex: _selectedIndex,
